@@ -8,13 +8,20 @@
 
 package ru.job4j;
 
-public class Calculate{
+/**
+* Package for calculate task.
+*
+* @author Sergey Indyukov(mailto:onl.ont@mail.ru)
+* @version $Id$
+* @since 0.1
+*/
+public class Calculate {
 
 /**
-* Метод main, вывод строки в консоль, входные параметры массив строк.
-* @param args - аргументы из командной строки
+* С›РµС‚РѕРґ main, РІС‹РІРѕРґ СЃС‚СЂРѕРєРё РІ РєРѕРЅСЃРѕР»СЊ, РІС…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РјР°СЃСЃРёРІ СЃС‚СЂРѕРє.
+* @param args - Р°СЂРіСѓРјРµРЅС‚С‹ РёР· РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё
 */
-public static void main(String[] args){
+public static void main(String[] args) {
 System.out.println("Hello world!");
 }
 }
