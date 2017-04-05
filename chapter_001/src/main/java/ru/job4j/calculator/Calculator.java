@@ -15,8 +15,8 @@ public class Calculator {
 * Test add.
 *@param first первый аргумент
 *@param second второй аргумент
-*/  
-    public void add(double first, double second) {
+*/
+public void add(double first, double second) {
         this.result = first + second;
     }
 /**
@@ -49,5 +49,5 @@ public class Calculator {
 */
  public double getResult() {
         return this.result;
-    }
+		}
 }
