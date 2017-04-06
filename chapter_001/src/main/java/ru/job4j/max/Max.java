@@ -16,9 +16,10 @@ public class Max {
 	public int max(int first, int second) {
 /**
 * @param maximum
+* @return maximum
 */
 		int maximum;
-		max = first > second ? first : second;
+		maximum = first > second ? first : second;
 		return maximum;
 	}
 }
