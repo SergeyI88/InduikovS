@@ -18,9 +18,7 @@ public class Max {
 * @param maximum
 * @return maximum
 */
-		int maximum;
-		maximum = first > second ? first : second;
-		return maximum;
+	return first > second ? first : second;
 	}
 /**
 * Method max.
@@ -30,9 +28,6 @@ public class Max {
 * @return maximum
 */
 public int max(int first, int second, int third) {
-
-	int max1;
-	max1 = max(first, second);
-	max1 = max(max1, third);
+	return max((max(first, second)), third);
 }
 }
