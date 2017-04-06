@@ -18,9 +18,10 @@ public class Factorial {
 			mul = 1;
 			return mul;
 		} else {
-			for (int i = 1; i <= 5; i++) {
+			for (int i = 1; i <= n; i++) {
 				mul *= i;
 			}
+			return mul;
 		}
 	}
 }
