@@ -16,11 +16,12 @@ public class MaxTest {
 /**
 * Test add.
 */
+
 @Test
-public void returnFirsOrSecond() {
-        Max M = new Max();
-        M.max(2, 1);
-        int maximum = 2;
+public void returnFirstOrSecond() {
+        Max mm = new Max();
+        int maximum = mm.max(2, 1);
         int expected = 2;
         assertThat(maximum, is(expected));
     }
+}
