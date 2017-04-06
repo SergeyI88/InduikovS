@@ -9,8 +9,8 @@ package ru.job4j.max;
 public class Max {
 /**
 * Method max.
-* @param first ������ ��������
-* @param second ������ ��������
+* @param first первый аргумент
+* @param second второй аргумент
 * @return maximum
 */
 	public int max(int first, int second) {
@@ -22,4 +22,17 @@ public class Max {
 		maximum = first > second ? first : second;
 		return maximum;
 	}
+/**
+* Method max.
+* @param first первый аргумент
+* @param second второй аргумент
+* @param third третий аргумент
+* @return maximum
+*/
+public int max(int first, int second, int third) {
+
+	int max1;
+	max1 = max(first, second);
+	max1 = max(max1, third);
+}
 }
