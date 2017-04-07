@@ -9,18 +9,23 @@ package ru.job4j.loop;
 */
 public class Paint {
 /** Method piramid.
-* @param h первый аргумент
-* @return String что-то
+* @param h РїРµСЂРІС‹Р№ Р°СЂРіСѓРјРµРЅС‚
+* @return String С‡С‚Рѕ-С‚Рѕ
 */
 	public String piramid(int h) {
+		StringBuilder sB = new StringBuilder();
 		for (int i = 0; i < h; i++) {
-			for (int j = 1; j < h - 1; j++) {
-					System.out.print(" ");
+			for (int j = i; j < h - 1; j++) {
+				sB.append(' ');
 			}
-			for (int k = i; k < h; k++) {
-				System.out.print("^");
+			for (int j = h - i; j <= h + i; j++) {
+				sB.append('^');
 			}
-		System.out.println();
+			for (int j = i; j < h - 1; j++) {
+				sB.append(' ');
+				sB.append(System.getProperty("line.separator"));
+			}
 		}
+		return sB.toString();
 	}
 }
