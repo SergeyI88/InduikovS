@@ -32,6 +32,6 @@ public class PaintTest {
         String result = paint.piramid(3);
         String expected = String.format(" ^ %s^^^%s^^^^^", System.getProperty("line.separator"));
         assertThat(result, is(expected));
-       //напишите здесь тест, проверяющий формирование пирамиды для высоты 3.
+       //РЅР°РїРёС€РёС‚Рµ Р·РґРµСЃСЊ С‚РµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ С„РѕСЂРјРёСЂРѕРІР°РЅРёРµ РїРёСЂР°РјРёРґС‹ РґР»СЏ РІС‹СЃРѕС‚С‹ 3.
     }
 }
