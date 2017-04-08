@@ -24,9 +24,8 @@ public class Paint {
 			for (int j = i; j < h - 1; j++) {
 				sB.append(' ');
 			}
-			for (; i < h - 1;) {
+			if (i < h - 1) {
 				sB.append(System.getProperty("line.separator"));
-				break;
 			}
 		}
 		return sB.toString();
