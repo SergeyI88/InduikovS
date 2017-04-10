@@ -18,8 +18,8 @@ public class ArrayDuplicate {
 			for (int i = 0; i < array.length / 2; i++) {
 				for (int j = 1; i < array.length; j++) {
 					if (array[i] == array[j]) {
-						for (int k = 1; k < array.length; k++) {
-							array[j + k - 1] = array[j + k];
+						for (int k = j; k < array.length - 1; k++) {
+							array[k] = array[k + 1];
 						}
 						c++;
 						j--;
@@ -27,5 +27,5 @@ public class ArrayDuplicate {
 				}
 			}
 		return Arrays.copyOf(array, array.length - c);
-	}
+	} //{"Привет", "Мир", "Привет", "Супер", "Мир"};
 }
