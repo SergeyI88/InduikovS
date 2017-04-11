@@ -13,20 +13,59 @@ public class ArrayDuplicate {
 * @param array первый аргумент
 * @return array
 */
-	public int[] remove(String[] array) {
+public String[] remove(String[] array) {
 		int c1 = 0; //переменная счетчик количество повторяемых слов
-		 	for (int i = 0; i < array.length - 1; i++) { //проходим все элементы кроме последнего
-				for (int j = i + 1; i < array.length; j++) { // сравнивается отдельно элемент, со всеми после него
-					if (array[i] == array[j]) { // сравниваем значение элемента внешнего цикла и внутреннего
-						for (int k = j; k < array.length - 1; k++) { // если они равны, то запускаем цикл сдвига вправо, тем самым перезаписываем элемент
-																	 //копию следующим значением
-							array[k] = array[k + 1]; // запись
-						}
-						c1++;
-						j--; //снова проверяем этот же элемент массива, потому как при сдвиге, мы упустим значение, этого элемента до сдвига
-					}
+		for (int i = 0; i < array.length - 1; i++) {
+			for (int j = i + 1; j < array.length; j++) {
+				if (array[i] == array[j]) {
+					array[j] = null;
 				}
 			}
-		return Arrays.copyOf(array, array.length - c1 + 1); // возвращаем массив обрезанный копиями, которые остались справа
-	} //{"Привет", "Мир", "Привет", "Супер", "Мир"};
+		}
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] == null) {
+				c1++;
+			}
+		}
+		 	for (int i = 0; i < array.length - c1; i++) {
+				if (array[i] == null) {
+					for (int j = i + 1; j < array.length; j++) {
+						array[j - 1] = array[j];
+					}
+					--i;
+				}
+			}
+		return Arrays.copyOf(array, array.length - c1);
+	// возвращаем массив обрезанный копиями, которые остались справа
+	}
+/**
+* Method remove1.
+* @param array первый аргумент
+* @return array
+*/
+	public int[] remove1(int[] array) {
+		int c1 = 0; //переменная счетчик количество повторяемых слов
+		for (int i = 0; i < array.length - 1; i++) {
+			for (int j = i + 1; j < array.length; j++) {
+				if (array[i] == array[j]) {
+					array[j] = 0;
+				}
+			}
+		}
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] == 0) {
+				c1++;
+			}
+		}
+		 	for (int i = 0; i < array.length - c1; i++) {
+				if (array[i] == 0) {
+					for (int j = i + 1; j < array.length; j++) {
+						array[j - 1] = array[j];
+					}
+					--i;
+				}
+			}
+	return Arrays.copyOf(array, array.length - c1);
+	// возвращаем массив обрезанный копиями, которые остались справа
+	}
 }
