@@ -14,28 +14,24 @@ public class ArrayDuplicate {
 * @return array
 */
 public String[] remove(String[] array) {
-		int c1 = 0; //переменная счетчик количество повторяемых слов
-		for (int i = 0; i < array.length - 1; i++) {
+		int c1 = 0;
+		int c = 0;		//переменная счетчик количество повторяемых слов
+		for (int i = 0; i < array.length - c1; i++) {
 			for (int j = i + 1; j < array.length; j++) {
 				if (array[i] == array[j]) {
-					array[j] = null;
-				}
-			}
-		}
-		for (int i = 0; i < array.length; i++) {
-			if (array[i] == null) {
-				c1++;
-			}
-		}
-		 	for (int i = 0; i < array.length - c1; i++) {
-				if (array[i] == null) {
-					for (int j = i + 1; j < array.length; j++) {
-						array[j - 1] = array[j];
+					for (int k = j; k < array.length - 1; k++) {
+						array[k] = array[k + 1];
 					}
-					--i;
+					c1++;
+					if (array[i] == array[j]) {
+						i--;
+						c--;
+					}
 				}
 			}
-		return Arrays.copyOf(array, array.length - c1);
+		}
+			c += c1;
+		return Arrays.copyOf(array, array.length - c - 1);
 	// возвращаем массив обрезанный копиями, которые остались справа
 	}
 /**
@@ -44,28 +40,24 @@ public String[] remove(String[] array) {
 * @return array
 */
 	public int[] remove1(int[] array) {
-		int c1 = 0; //переменная счетчик количество повторяемых слов
-		for (int i = 0; i < array.length - 1; i++) {
+		int c1 = 0;
+		int c = 0;		//переменная счетчик количество повторяемых слов
+		for (int i = 0; i < array.length - c1; i++) {
 			for (int j = i + 1; j < array.length; j++) {
 				if (array[i] == array[j]) {
-					array[j] = 0;
-				}
-			}
-		}
-		for (int i = 0; i < array.length; i++) {
-			if (array[i] == 0) {
-				c1++;
-			}
-		}
-		 	for (int i = 0; i < array.length - c1; i++) {
-				if (array[i] == 0) {
-					for (int j = i + 1; j < array.length; j++) {
-						array[j - 1] = array[j];
+					for (int k = j; k < array.length - 1; k++) {
+						array[k] = array[k + 1];
 					}
-					--i;
+					c1++;
+					if (array[i] == array[j]) {
+						i--;
+						c--;
+					}
 				}
 			}
-	return Arrays.copyOf(array, array.length - c1);
+		}
+		c += c1;
+	return Arrays.copyOf(array, array.length - c - 1);
 	// возвращаем массив обрезанный копиями, которые остались справа
 	}
 }
