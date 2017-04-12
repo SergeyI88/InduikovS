@@ -14,24 +14,15 @@ public class ArrayDuplicate {
 * @return array
 */
 public String[] remove(String[] array) {
-		int c1 = 0;
-		int c = 0;		//переменная счетчик количество повторяемых слов
-		for (int i = 0; i < array.length - c1; i++) {
-			for (int j = i + 1; j < array.length; j++) {
+	int end = array.length;
+	for (int i = 0; i < end; i++) {
+			for (int j = i + 1; j < end; j++) {
 				if (array[i] == array[j]) {
-					for (int k = j; k < array.length - 1; k++) {
-						array[k] = array[k + 1];
-					}
-					c1++;
-					if (array[i] == array[j]) {
-						i--;
-						c--;
-					}
+						array[j--] = array[--end];
 				}
 			}
 		}
-			c += c1;
-		return Arrays.copyOf(array, array.length - c - 1);
+	return Arrays.copyOf(array, end);
 	// возвращаем массив обрезанный копиями, которые остались справа
 	}
 /**
@@ -40,24 +31,15 @@ public String[] remove(String[] array) {
 * @return array
 */
 	public int[] remove1(int[] array) {
-		int c1 = 0;
-		int c = 0;		//переменная счетчик количество повторяемых слов
-		for (int i = 0; i < array.length - c1; i++) {
-			for (int j = i + 1; j < array.length; j++) {
+		int end = array.length;
+		for (int i = 0; i < end; i++) {
+			for (int j = i + 1; j < end; j++) {
 				if (array[i] == array[j]) {
-					for (int k = j; k < array.length - 1; k++) {
-						array[k] = array[k + 1];
-					}
-					c1++;
-					if (array[i] == array[j]) {
-						i--;
-						c--;
-					}
+						array[j--] = array[--end];
 				}
 			}
 		}
-		c += c1;
-	return Arrays.copyOf(array, array.length - c - 1);
+	return Arrays.copyOf(array, end);
 	// возвращаем массив обрезанный копиями, которые остались справа
 	}
 }
