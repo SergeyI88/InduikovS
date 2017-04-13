@@ -25,7 +25,7 @@ for (int i = 0, j = 0; i < orig.length; i++) {
 		while (pod < s.length && gl < orig.length) {
 			if (orig[gl++] == s[pod++]) {
 				k++;
-				if (k == s.length && pod < orig.length) {
+				if (k == s.length && pod < orig.length - i - 1) {
 					c = true;
 				}
 			} else {
