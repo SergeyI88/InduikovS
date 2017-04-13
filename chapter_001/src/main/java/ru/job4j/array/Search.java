@@ -22,7 +22,7 @@ for (int i = 0, j = 0; i < orig.length; i++) {
 	if (orig[i] == s[j]) {
 		int gl = i;
 		int pod = j;
-		while (pod < s.length || gl < orig.length) {
+		while (pod < s.length && gl < orig.length) {
 			if (orig[gl++] == s[pod++]) {
 				k++;
 				if (k == s.length) {
