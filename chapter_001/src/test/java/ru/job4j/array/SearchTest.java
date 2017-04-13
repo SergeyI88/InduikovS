@@ -20,7 +20,27 @@ public class SearchTest {
     public void searchSubInOrigin() {
 		Search search = new Search();
 		boolean a = true;
-		boolean b = search.contains("Hello", "lo");
+		boolean b = search.contains("Hellojob", "lojo");
+		assertThat(b, is(a));
+    }
+/**
+* Test  searchSubInOrigin.
+*/
+    @Test
+    public void searchSubInOrigin2() {
+		Search search = new Search();
+		boolean a = false;
+		boolean b = search.contains("Hellojob", "lojobo");
+		assertThat(b, is(a));
+    }
+/**
+* Test  searchSubInOrigin.
+*/
+    @Test
+    public void searchSubInOrigin3() {
+		Search search = new Search();
+		boolean a = true;
+		boolean b = search.contains("Hellojob", "lojob");
 		assertThat(b, is(a));
     }
 }
