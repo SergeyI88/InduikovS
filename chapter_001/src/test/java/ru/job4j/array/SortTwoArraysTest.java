@@ -36,4 +36,16 @@ public class SortTwoArraysTest {
 		int[] resultArray = array.sort(tempArray1, tempArray2);
 		assertThat(resultArray, is(expectArray));
 	}
+/**
+* Test sortTest.
+*/
+    @Test
+	public void sortTest2() {
+		SortTwoArrays array = new SortTwoArrays();
+		int[] expectArray = new int[] {1, 3, 7, 90, 231, 888, 889, 911, 911};
+		int[] tempArray1 = new int[] {1, 7, 231, 888, 889, 911};
+		int[] tempArray2 = new int[] {3, 90, 911};
+		int[] resultArray = array.sort(tempArray1, tempArray2);
+		assertThat(resultArray, is(expectArray));
+	}
 }
