@@ -1,4 +1,4 @@
-package ru.job4j.calculator;
+package ru.job4j.condition;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
@@ -20,6 +20,6 @@ public void trueOrFalse() {
         Point point = new Point(2, 5);
         boolean i = point.is(1, 3);
         boolean expected = true;
-        assertThat(maximum, is(expected));
+        assertThat(i, is(expected));
     }
 }

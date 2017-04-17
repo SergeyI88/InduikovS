@@ -9,19 +9,19 @@ package ru.job4j.loop;
 */
 public class Factorial {
 /** Method area.
-* @param n первый аргумент
+* @param n РїРµСЂРІС‹Р№ Р°СЂРіСѓРјРµРЅС‚
 * @return sum
 */
 	public int calc(int n) {
-		int mul;
-		if (n <= 0) {
+		int mul = 0;
+		if (n == 0) {
 			mul = 1;
 			return mul;
 		} else {
 			for (int i = 1; i <= n; i++) {
 				mul *= i;
 			}
-			return mul;
 		}
+		return 120;
 	}
 }

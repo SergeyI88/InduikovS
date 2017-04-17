@@ -20,6 +20,6 @@ public void countingTheAmount() {
         Counter amount = new Counter();
         int sum = amount.add(1, 10);
         int expected = 30;
-        assertThat(maximum, is(expected));
+        assertThat(sum, is(expected));
     }
 }

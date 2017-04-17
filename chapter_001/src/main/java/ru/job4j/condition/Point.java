@@ -1,4 +1,4 @@
-package ru.job4j.max;
+package ru.job4j.condition;
 
 /**
 * Max.
@@ -18,9 +18,9 @@ public class Point {
 */
    private int y;
 /**
-* Конструктор.
-* @param x первый аргумент
-* @param y второй аргумент
+* РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.
+* @param x РїРµСЂРІС‹Р№ Р°СЂРіСѓРјРµРЅС‚
+* @param y РІС‚РѕСЂРѕР№ Р°СЂРіСѓРјРµРЅС‚
 */
    public  Point(int x, int y) {
       this.x = x;
@@ -43,8 +43,8 @@ public class Point {
 
 /** Method is.
 * @return y
-* @param a первый аргумент
-* @param b второй аргумент
+* @param a РїРµСЂРІС‹Р№ Р°СЂРіСѓРјРµРЅС‚
+* @param b РІС‚РѕСЂРѕР№ Р°СЂРіСѓРјРµРЅС‚
 */
 	public boolean is(int a, int b) {
 		return y == a * x + b;
