@@ -33,49 +33,27 @@ package ru.job4j.proffesionals;
 	 private String hunger;
 
 /**
-*SetHunger.
+*Конструктор.
+*/
+	 public Proffesion() {
+	 }
+
+/**
+*Конструктор.
 *@param hunger первый аргумент
+*@param age  аргумент
+*@param wellBeing  аргумент
+*@param family  аргумент
+*@param level  аргумент
+*@param name  аргумент
 */
-	 public void setHunger(String hunger) {
+	 public Proffesion(String hunger, int age, String wellBeing, String family, int level, String name) {
 		 this.hunger = hunger;
-	 }
-
-/**
-*SetWellBeing.
-*@param wellBeing первый аргумент
-*/
-	 public void setWellBeing(String wellBeing) {
-		 this.wellBeing = wellBeing;
-	 }
-
-/**
-*SetFamily.
-*@param family первый аргумент
-*/
-	 public void setFamily(String family) {
-		 this.family = family;
-	 }
-
-/**
-*SetName.
-*@param name первый аргумент
-*/
-	 public void setName(String name) {
-		 this.name = name;
-	 }
-/**
-*SetLevel.
-*@param level первый аргумент
-*/
-	 public void setLevel(int level) {
-		 this.level = level;
-	 }
-/**
-*SetAge.
-*@param age первый аргумент
-*/
-	 public void setAge(int age) {
 		 this.age = age;
+		 this.wellBeing = wellBeing;
+		 this.family = family;
+		 this.level = level;
+		 this.name = name;
 	 }
 /**
 *getHunger.

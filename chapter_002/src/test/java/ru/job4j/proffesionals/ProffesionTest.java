@@ -18,7 +18,7 @@ public class ProffesionTest {
 */
 @Test
 public void doctorTest() {
-        Doctor ser = new Doctor();
+        Doctor ser = new Doctor("norm", 23, "good", "mark0", 88, "mar1");
 		Pacient pac = new Pacient();
 		Diagnose dia = new Diagnose();
 		String expected = "goodlife";
@@ -31,10 +31,10 @@ public void doctorTest() {
 */
 @Test
 public void engineerTest() {
-        Engineer ser = new Engineer();
+        Engineer ser = new Engineer("norm", 23, "good", "mark0", 88, "Макс");
 		Mashine mashine = new Mashine();
 		String expected = "Инженер Макс починил станок хорошо";
-		ser.setName("Макс");
+		//ser.setName("Макс");
 		ser.repair(mashine);
 		String sB = "Инженер " + ser.getName() + " починил станок " + mashine.getState();
         assertThat(sB, is(expected));
@@ -44,8 +44,8 @@ public void engineerTest() {
 */
 @Test
 public void teacherTest() {
-        Teacher teacher = new Teacher();
-		teacher.setName("Иван");
+        Teacher teacher = new Teacher("norm", 23, "good", "mark0", 88, "Иван");
+		//teacher.setName("Иван");
 		Lection lection = new Lection();
 		Gruppa gruppa = new Gruppa();
 		lection = teacher.lesson(gruppa);
