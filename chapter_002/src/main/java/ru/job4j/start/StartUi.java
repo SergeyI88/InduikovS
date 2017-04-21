@@ -26,18 +26,12 @@ public class StartUi {
 /**
 * method showItems.
 * @param items first
-* @param select second
 */
-	public static void showItems(Item[] items, int select) {
-		if (select == 1) {
+	public static void showItems(Item[] items) {
 			for (int i = 0; i < items.length; i++) {
 				System.out.println(items[i].getId() + " " + items[i].getName() + " " + items[i].getDescription() + " " + items[i].getCreate());
 			}
-		} else {
-			for (int i = 0; i < items.length; i++) {
-				System.out.println(items[i].getId() + " " + items[i].getName() + " " + items[i].getDescription() + " " + items[i].getCreate());
-			}
-		}
+
 	}
 /**
 * method showItem.
@@ -68,7 +62,7 @@ public class StartUi {
 				tracker.add(item);
 			}
 			if (select == 1) {
-				showItems(tracker.findAll(), select);
+				showItems(tracker.findAll());
 			}
 			if (select == 2) {
 				String name = input.askName("Please, enter the item name(the names must match the name of the editabler application): ");
@@ -89,7 +83,7 @@ public class StartUi {
 			}
 			if (select == 5) {
 				String name = input.askName("Please, enter the item name: ");
-				showItems(tracker.findByName(name), select);
+				showItems(tracker.findByName(name));
 			}
 			showMenu();
 			select = input.select();
