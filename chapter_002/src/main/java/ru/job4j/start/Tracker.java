@@ -79,7 +79,7 @@ public class Tracker {
 			tempItem[count++] = items[i];
 			}
 		}
-		return Arrays.copyOf(tempItem, a);
+		return Arrays.copyOf(tempItem, count);
 	}
 /**
 * method findByName.
@@ -95,7 +95,7 @@ public class Tracker {
 				tempItem[count++] = items[i];
 			}
 		}
-		return Arrays.copyOf(tempItem, j);
+		return Arrays.copyOf(tempItem, count);
 	}
 /**
 * method getAll.
