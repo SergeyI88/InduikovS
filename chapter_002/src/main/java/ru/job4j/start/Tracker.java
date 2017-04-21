@@ -73,10 +73,10 @@ public class Tracker {
 */
 	public Item[] findAll() {
 		Item[] tempItem = new Item[items.length];
-		int a = 0;
+		int count = 0;
 		for (int i = 0; i < items.length; i++) {
 			if (items[i] != null) {
-			tempItem[a++] = items[i];
+			tempItem[count++] = items[i];
 			}
 		}
 		return Arrays.copyOf(tempItem, a);
@@ -89,10 +89,10 @@ public class Tracker {
 	public Item[] findByName(String key) {
 		Item[] tempItem = new Item[items.length];
 		//System.arraycopy(items, 0, tempItem, 0, items.length);
-		int j = 0;
+		int count = 0;
 		for (int i = 0; i < items.length; i++) {
 			if (items[i] != null && items[i].getName().equals(key)) {
-				tempItem[j++] = items[i];
+				tempItem[count++] = items[i];
 			}
 		}
 		return Arrays.copyOf(tempItem, j);
