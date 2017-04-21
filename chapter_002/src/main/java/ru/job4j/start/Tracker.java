@@ -77,7 +77,6 @@ public class Tracker {
 		for (int i = 0; i < items.length; i++) {
 			if (items[i] != null) {
 			tempItem[a++] = items[i];
-			} else {
 			}
 		}
 		return Arrays.copyOf(tempItem, a);
@@ -94,7 +93,6 @@ public class Tracker {
 		for (int i = 0; i < items.length; i++) {
 			if (items[i] != null && items[i].getName().equals(key)) {
 				tempItem[j++] = items[i];
-			} else {
 			}
 		}
 		return Arrays.copyOf(tempItem, j);
