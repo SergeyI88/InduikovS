@@ -59,11 +59,6 @@ public class Tracker {
 * @param item first
 */
 	public void delete(Item item) {
-		/*for (Item item1 : items) {
-			if (item1 != null && item.getId().equals(item1.getId())) {
-				item1 = null;
-			}
-		}*/
 		for (int i = 0; i < items.length; i++) {
 			if (this.items[i] != null && item.getId().equals(this.items[i].getId())) {
 				this.items[i] = null;
@@ -79,15 +74,13 @@ public class Tracker {
 	public Item[] findAll() {
 		Item[] tempItem = new Item[items.length];
 		int a = 0;
-		int b = 0;
 		for (int i = 0; i < items.length; i++) {
 			if (items[i] != null) {
 			tempItem[a++] = items[i];
 			} else {
-			b++;
 			}
 		}
-		return Arrays.copyOf(tempItem, items.length - b);
+		return Arrays.copyOf(tempItem, a);
 	}
 /**
 * method findByName.
@@ -97,15 +90,14 @@ public class Tracker {
 	public Item[] findByName(String key) {
 		Item[] tempItem = new Item[items.length];
 		//System.arraycopy(items, 0, tempItem, 0, items.length);
-		int a = 0;
-		for (int i = 0, j = 0; i < items.length; i++) {
+		int j = 0;
+		for (int i = 0; i < items.length; i++) {
 			if (items[i] != null && items[i].getName().equals(key)) {
 				tempItem[j++] = items[i];
 			} else {
-			a++;
 			}
 		}
-		return Arrays.copyOf(tempItem, items.length - a);
+		return Arrays.copyOf(tempItem, j);
 	}
 /**
 * method getAll.
