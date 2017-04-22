@@ -34,10 +34,16 @@ public class Tracker {
 */
 	protected Item findById(String id) {
 		Item result = null;
-			for (Item item : items) {
+			/*for (Item item : items) {
 				if (item != null && item.getId().equals(id)) {
 				result = item;
 				break;
+				}
+			}*/
+			for (int i = 0; i < items.length; i++) {
+				if (items[i] != null && items[i].getId().equals(id)) {
+					result = items[i];
+					break;
 				}
 			}
 		return result;

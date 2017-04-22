@@ -38,7 +38,9 @@ public class StartUi {
 * @param item first
 */
 	public static void showItem(Item item) {
-		System.out.println(item.getId() + " " + item.getName() + " " + item.getDescription() + " " + item.getCreate());
+		if (item != null) {
+			System.out.println(item.getId() + " " + item.getName() + " " + item.getDescription() + " " + item.getCreate());
+		}
 	}
 /**
 * method mains.

@@ -14,7 +14,7 @@ public class ConsoleInput implements Input {
 * @return select
 */
 	int select() {
-		int select = scanner.nextInt();
+		int select = Integer.parseInt(scanner.nextLine());
 		return select;
 	}
 /**
@@ -55,6 +55,6 @@ public class ConsoleInput implements Input {
 */
 	long askCreate(String question) {
 		System.out.print(question);
-		return scanner.nextLong();
+		return Long.parseLong(scanner.nextLine());
 	}
 }
