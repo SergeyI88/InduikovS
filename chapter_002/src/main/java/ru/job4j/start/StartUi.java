@@ -74,7 +74,7 @@ public class StartUi {
 */
 	public static void showItems(Item[] items) {
 			for (int i = 0; i < items.length; i++) {
-				System.out.println(String.format("%s. %s %s %s", items[i].getId(), items[i].getName(), items[i].getDescription(), items[i].getCreate()));
+				System.out.println(String.format("%s %s %s %s", items[i].getId(), items[i].getName(), items[i].getDescription(), items[i].getCreate()));
 			}
 
 	}
@@ -84,7 +84,7 @@ public class StartUi {
 */
 	public static void showItem(Item item) {
 		if (item != null) {
-			System.out.println(String.format("%s. %s %s %s", item.getId(), item.getName(), item.getDescription(), item.getCreate()));
+			System.out.println(String.format("%s %s %s %s", item.getId(), item.getName(), item.getDescription(), item.getCreate()));
 		}
 	}
 /** method init.
