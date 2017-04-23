@@ -20,12 +20,10 @@ public class Tracker {
 /**
 * method add.
 * @param item first
-* @return item
 */
-	public Item add(Item item) {
+	public void add(Item item) {
 		//item.setId(String.valueof(RN.next()));
 		this.items[position++] = item;
-		return item;
 	}
 /**
 * method finById.
@@ -34,12 +32,6 @@ public class Tracker {
 */
 	protected Item findById(String id) {
 		Item result = null;
-			/*for (Item item : items) {
-				if (item != null && item.getId().equals(id)) {
-				result = item;
-				break;
-				}
-			}*/
 			for (int i = 0; i < items.length; i++) {
 				if (items[i] != null && items[i].getId().equals(id)) {
 					result = items[i];
@@ -94,7 +86,6 @@ public class Tracker {
 */
 	public Item[] findByName(String key) {
 		Item[] tempItem = new Item[items.length];
-		//System.arraycopy(items, 0, tempItem, 0, items.length);
 		int count = 0;
 		for (int i = 0; i < items.length; i++) {
 			if (items[i] != null && items[i].getName().equals(key)) {

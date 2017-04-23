@@ -13,7 +13,7 @@ public class ConsoleInput implements Input {
 * method select ввод управляющего числа пользователем.
 * @return select
 */
-	int select() {
+	public int select() {
 		int select = Integer.parseInt(scanner.nextLine());
 		return select;
 	}
@@ -26,7 +26,7 @@ public class ConsoleInput implements Input {
 * @param question first
 * @return String.
 */
-	String askName(String question) {
+	public String askName(String question) {
 		System.out.print(question);
 		return scanner.nextLine();
 	}
@@ -35,7 +35,7 @@ public class ConsoleInput implements Input {
 * @param question first
 * @return String
 */
-	String askId(String question) {
+	public String askId(String question) {
 		System.out.print(question);
 		return scanner.nextLine();
 	}
@@ -44,7 +44,7 @@ public class ConsoleInput implements Input {
 * @param question first
 * @return String
 */
-	String askDescription(String question) {
+	public String askDescription(String question) {
 		System.out.print(question);
 		return scanner.nextLine();
 	}
@@ -53,7 +53,7 @@ public class ConsoleInput implements Input {
 * @param question first
 * @return long
 */
-	long askCreate(String question) {
+	public long askCreate(String question) {
 		System.out.print(question);
 		return Long.parseLong(scanner.nextLine());
 	}

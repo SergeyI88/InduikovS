@@ -13,7 +13,7 @@ public class StartUi {
 /**
 * @param;
 */
-	private ConsoleInput input;
+	private Input input;
 /**
 * @param;
 */
@@ -51,7 +51,7 @@ public class StartUi {
 * @param input first
 * @param tracker second
 */
-    public StartUi(ConsoleInput input, Tracker tracker) {
+    public StartUi(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
@@ -94,6 +94,7 @@ public class StartUi {
 		int select = this.input.select();
 		while (select < 0 || select > 6) {
 			System.out.println("Введено некорректное значение");
+			select = this.input.select();
 		}
 		while (select != EXIT) {
 			if (select == ADD) {
@@ -138,7 +139,11 @@ public class StartUi {
 */
 	public static void main(String[] args) {
 		Tracker tracker = new Tracker();
-		ConsoleInput input = new ConsoleInput();
+		Item it = new Item("test id", "test id", "testDesc", 124);
+		tracker.add(it);
+		System.out.println(tracker.getAll()[0].getCreate());
+		Input input = new StubInput(new String[]{"2", "test id", "test id", "desc", "0", "6"});
 		new StartUi(input, tracker).init();
+		System.out.println(tracker.getAll()[0].getCreate());
 	}
 }
