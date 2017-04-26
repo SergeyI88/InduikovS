@@ -47,6 +47,7 @@ public class Tracker {
 	public void update(Item item) {
 		for (int i = 0; i < items.length; i++) {
 			if (items[i] != null && item.getId().equals(items[i].getId())) {
+				System.out.println("log");
 				items[i] = item;
 				break;
 			}
