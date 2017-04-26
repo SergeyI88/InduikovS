@@ -45,7 +45,7 @@ public class MenuTracker {
 /**
 * @param actions.
 */
-	private UserAction[] actions = new UserAction[5];
+	private UserAction[] actions = new UserAction[6];
 /**
 * @param tracker.
 */
