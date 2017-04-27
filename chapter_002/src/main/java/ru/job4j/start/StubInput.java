@@ -79,4 +79,14 @@ public class StubInput implements Input {
 		System.out.print(question);
 		return Long.parseLong(answers[4]);
 	}
+/**
+* method ask.
+* @param question first
+* @param range second
+* @return long
+*/
+	public int ask(String question, int[] range) {
+	//	throw new UnsupportedOperationException("Unsupported operation");
+	return -1;
+	}
 }

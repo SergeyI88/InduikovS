@@ -13,6 +13,10 @@ public class StartUi {
 /**
 * @param;
 */
+	private static int[] range = new int[] {0, 1, 2, 3, 4, 5};
+/**
+* @param;
+*/
 	private Input input;
 /**
 * @param tracker;
@@ -146,13 +150,12 @@ public class StartUi {
 		new StartUi(input, tracker).init();
 		System.out.println(tracker.getAll()[0].getCreate());*/
 		Tracker tracker = new Tracker();
-		Input input = new ConsoleInput();
+		Input input = new ValidateInput();
 		MenuTracker menu = new MenuTracker(input, tracker);
 		menu.fill();
 		do {
 			menu.show();
-			System.out.print("Select:");
-			int key = input.select();
+			int key = input.ask("Select: ", range);
 			menu.select(key);
 			System.out.print("Введите 6 чтобы выйти:");
 		} while (!(Integer.valueOf("6").equals(input.select())));

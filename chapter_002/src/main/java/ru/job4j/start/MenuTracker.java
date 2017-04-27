@@ -1,39 +1,7 @@
 package ru.job4j.start;
 
 import ru.job4j.models.Item;
-/**
-*
-* class EditItem.
-*/
 
-class EditItem implements UserAction {
-/**
-* method key.
-* @return 0
-*/
-		public int key() {
-			return 2;
-		}
-/**
-* method execute.
-* @param input first
-* @param tracker second
-*/
-		public void execute(Input input, Tracker tracker) {
-			String name = input.askName("Please, enter the item name(the names must match the name of the editabler application): ");
-			String id = input.askId("Please, enter the item id: ");
-			String desc = input.askDescription("Please, enter the item description: ");
-			long create = input.askCreate("Please, enter the item Create: ");
-			tracker.update(new Item(id, name, desc, create));
-		}
-/**
-* method info.
-* @return String
-*/
-		public String info() {
-			return String.format("%s. %s", this.key(), "Edit Item. ");
-		}
-	}
 /**
 *
 * class MenuTracker.
@@ -244,6 +212,39 @@ public class MenuTracker {
 */
 		public String info() {
 			return String.format("%s. %s", this.key(), "Find  Item by Name. ");
+		}
+	}
+/**
+*
+* class EditItem.
+*/
+
+		private class EditItem implements UserAction {
+/**
+* method key.
+* @return 0
+*/
+		public int key() {
+			return 2;
+		}
+/**
+* method execute.
+* @param input first
+* @param tracker second
+*/
+		public void execute(Input input, Tracker tracker) {
+			String name = input.askName("Please, enter the item name(the names must match the name of the editabler application): ");
+			String id = input.askId("Please, enter the item id: ");
+			String desc = input.askDescription("Please, enter the item description: ");
+			long create = input.askCreate("Please, enter the item Create: ");
+			tracker.update(new Item(id, name, desc, create));
+		}
+/**
+* method info.
+* @return String
+*/
+		public String info() {
+			return String.format("%s. %s", this.key(), "Edit Item. ");
 		}
 	}
 }

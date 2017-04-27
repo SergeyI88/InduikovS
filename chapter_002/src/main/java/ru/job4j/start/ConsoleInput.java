@@ -14,8 +14,17 @@ public class ConsoleInput implements Input {
 * @return select
 */
 	public int select() {
-		int select = Integer.parseInt(scanner.nextLine());
-		return select;
+		int value = 0;
+		boolean exist = true;
+		do {
+			try {
+				value = Integer.parseInt(scanner.nextLine());
+				exist = false;
+			} catch (NumberFormatException nfe) {
+				System.out.print("Введите 6, чтобы выйти или любое другое число, чтобы продолжить: ");
+				}
+		} while (exist);
+		return value;
 	}
 /**
 * @param scanner
@@ -55,6 +64,39 @@ public class ConsoleInput implements Input {
 */
 	public long askCreate(String question) {
 		System.out.print(question);
-		return Long.parseLong(scanner.nextLine());
+		long value = 0;
+		boolean exist = true;
+		do {
+		try {
+			value = Long.parseLong(scanner.nextLine());
+			exist = false;
+		} catch (NumberFormatException nfe) {
+			System.out.println("Неккоректные данные");
+			System.out.println("Введите данные заново: ");
+		}
+	} while (exist);
+	return value;
+	}
+/**
+* method askCreate.
+* @param question first
+* @param range second
+* @return long
+*/
+	public int ask(String question, int[] range) {
+		System.out.print(question);
+		int key = Integer.valueOf(this.select());
+		boolean exist = false;
+		for (int value : range) {
+			if (value == key) {
+				exist = true;
+				break;
+			}
+		}
+		if (exist) {
+			return key;
+		} else {
+			throw new MenuOutException("Out of menu range.");
+		}
 	}
 }

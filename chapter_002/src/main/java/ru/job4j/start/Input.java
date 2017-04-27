@@ -37,4 +37,11 @@ public interface Input {
 * @return long
 */
 	long askCreate(String question);
+/**
+* method ask.
+* @param question first
+* @param range second
+* @return int
+*/
+	int ask(String question, int[] range);
 }
