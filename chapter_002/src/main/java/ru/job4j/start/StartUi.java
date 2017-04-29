@@ -158,6 +158,6 @@ public class StartUi {
 			int key = input.ask("Select: ", range);
 			menu.select(key);
 			System.out.print("Введите 6 чтобы выйти:");
-		} while (!(Integer.valueOf("6").equals(input.select())));
+		} while (input.select() != EXIT);
 	}
 }
