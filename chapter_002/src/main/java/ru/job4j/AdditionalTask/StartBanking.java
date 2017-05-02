@@ -35,15 +35,19 @@ public class StartBanking {
           for (j = 0; j < 20; j++) {
               if (sB.visitors[j].getOut() < i && sB.visitors[j].getCalculated() != true) {
                   sB.visitors[j].setCalculated(true);
-                  max++;
+                  temp++;
               }
           }
-          if (temp < max) {
-            temp = max;
+          if (max < temp) {
+            max = temp;
+            if ()
+                for (Visitor visit : sB.visitors) {
+                    System.out.println(String.format("%s %s %s %s", " Вход: ", visit.getIn(), "Выход: ", visit.getOut()));
+            }
             max = 0;
             temphour = hour;
           }
        }
-           System.out.println(String.format("%s %s %s %s %s","C ",temphour, " до ", temphour + 1, " было больше всего посетителей!"));
+           System.out.println(String.format("%s %s %s %s %s %s","C ",temphour, " до ", temphour + 1, " было больше всего посетителей! ", max));
        }
     }
