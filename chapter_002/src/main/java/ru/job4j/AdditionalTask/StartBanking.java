@@ -40,11 +40,7 @@ public class StartBanking {
           }
           if (max < temp) {
             max = temp;
-            if ()
-                for (Visitor visit : sB.visitors) {
-                    System.out.println(String.format("%s %s %s %s", " Вход: ", visit.getIn(), "Выход: ", visit.getOut()));
-            }
-            max = 0;
+            temp = 0;
             temphour = hour;
           }
        }
