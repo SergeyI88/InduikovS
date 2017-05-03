@@ -17,8 +17,7 @@ public class StartBankingTest {
         StartBanking startBanking = new StartBanking();
         startBanking.initVisitors();
         startBanking.determination();
-        assertThat(7, is(startBanking.getMax().max));
-        assertThat(13, is(startBanking.getMax().hours));
-        assertThat(22, is(startBanking.getMax().minutes));
+        String string = String.format("%s %s %s %s %s %s", "В", startBanking.getMax().hours, "часов", startBanking.getMax().minutes, "минуты было больше всего посетителей:", startBanking.getMax().max);
+        assertThat("В 13 часов 22 минуты было больше всего посетителей: 7", is(string));
     }
 }
