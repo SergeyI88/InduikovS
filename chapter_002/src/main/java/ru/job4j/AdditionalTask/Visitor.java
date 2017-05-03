@@ -16,17 +16,15 @@ public class Visitor {
     /**
      * @param calculated
      */
-    private boolean calculated = false;
+    private boolean calculated = true;
 
     /**
-     * method initTime.
+     * Конструктор
      */
-    public void initTime() {
-        Random rnd = new Random(System.currentTimeMillis());
-        in = rnd.nextInt(720);
-        out = in + rnd.nextInt(720 - in + 1);
+    public Visitor (int in, int out){
+        this.in = in;
+        this.out = out;
     }
-
     /**
      * method getOut.
      * @return out

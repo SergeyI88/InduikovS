@@ -142,13 +142,6 @@ public class StartUi {
 * @param args first
 */
 	public static void main(String[] args) {
-		/*Tracker tracker = new Tracker();
-		Item it = new Item("test id", "test id", "testDesc", 124);
-		tracker.add(it);
-		System.out.println(tracker.getAll()[0].getCreate());
-		Input input = new StubInput(new String[]{"2", "test id", "test id", "desc", "0", "6"});
-		new StartUi(input, tracker).init();
-		System.out.println(tracker.getAll()[0].getCreate());*/
 		Tracker tracker = new Tracker();
 		Input input = new ValidateInput();
 		MenuTracker menu = new MenuTracker(input, tracker);

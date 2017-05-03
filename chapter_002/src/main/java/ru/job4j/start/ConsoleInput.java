@@ -20,7 +20,7 @@ public class ConsoleInput implements Input {
 			try {
 				value = Integer.parseInt(scanner.nextLine());
 				exist = false;
-			} catch (Exception nfe) {
+			} catch (NumberFormatException nfe) {
 				System.out.print("Введите 6, чтобы выйти или любое другое число, чтобы продолжить: ");
 				}
 		} while (exist);

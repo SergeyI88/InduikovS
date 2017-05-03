@@ -22,9 +22,9 @@ public class ValidateInput extends ConsoleInput {
 		try {
 			value = super.ask(question, range);
 			invalid = false;
-		} catch (NumberFormatException nfe) {
-			System.out.println("Неккоректные данные");
-		} catch (MenuOutException moe) {
+		} catch (MenuOutException nfe) {
+			System.out.println("Выход за границы меню");
+		} catch (NumberFormatException moe) {
 			System.out.println("Неккоректные данные");
 		}
 	} while (invalid);
