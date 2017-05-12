@@ -1,8 +1,6 @@
 package ru.job4j.collections;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -47,16 +45,25 @@ public class ConvertList {
                 } else {
                     arrayInt[i][j] = 0;
                 }
-               /* if (arrayList.size() > i * rows + j) {
-                    arrayInt[i][j] = iterator.next();
-                } else {
-                    arrayInt[i][j] = 0;
-                }
-              *///  arrayInt[i][j] = arrayList.size() > i * rows + j ? iterator.next() : 0;
                 System.out.print(arrayInt[i][j] + " ");
             }
             System.out.println();
         }
         return arrayInt;
+    }
+    /**
+     * convert.
+     * @param list
+     * @return
+     */
+    public List<Integer> convert (List<int[]> list) {
+        LinkedList<int[]> tempList =  (LinkedList) list;
+        List<Integer> allLists = new LinkedList<>();
+        for (int i = 0; i < tempList.size(); i++ ) {
+            for (int j = 0; j < tempList.get(i).length; j++) {
+                allLists.add(Integer.valueOf(list.get(i)[j]));
+            }
+        }
+        return allLists;
     }
 }

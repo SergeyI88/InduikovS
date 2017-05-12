@@ -3,6 +3,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -43,5 +45,18 @@ public class ConverListTime {
         array = new ConvertList().toArray(arrayList, 3);
         assertThat(array[1][2], is(arrayList.get(6)));
         assertThat(array[1][3], is(8));
+    }
+    @Test
+    public void testConvert() {
+        LinkedList<int[]> linkedListAll = new LinkedList<>();
+        int[] array = {1, 2, 3, 4};
+        int[] array1 = {4, 3, 2, 1};
+        linkedListAll.addAll(Arrays.asList(array));
+        linkedListAll.addAll(Arrays.asList(array1));
+        LinkedList<Integer> linkedList = (LinkedList) new ConvertList().convert(linkedListAll);
+        assertThat(linkedList.size(), is(8));
+        assertThat(linkedList.get(0), is(1));
+        assertThat(linkedList.get(7), is(1));
+
     }
 }
