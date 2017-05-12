@@ -19,9 +19,9 @@ public class SortUserTest {
         User2 user = iterator.next();
         iterator.next();
         User2 user2 = iterator.next();
-        assertThat(user, is(new User2("name2", 19)));
+        assertThat(user.toString(), is(new User2("name2", 19).toString()));
 
-        assertThat(user2, is(new User2("name3", 29)));
+        assertThat(user2.toString(), is(new User2("name3", 29).toString()));
     }
 
 }
