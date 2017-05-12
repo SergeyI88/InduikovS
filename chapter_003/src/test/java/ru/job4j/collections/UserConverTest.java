@@ -19,7 +19,7 @@ public class UserConverTest {
         users[2] = new User("name3", 133, "city3");
         ArrayList<User> arrayList = new ArrayList<User>(Arrays.asList(users));
         Map<Integer, User> map = new UserConvert().process(arrayList);
-        assertThat(String.format("%s %s", "name", "city"), is(map.get(13)));
-        assertThat(map.containsKey(13), is("true"));
+        assertThat(String.format("%s %s", "name", "city"), is(map.get(13).toString()));
+        assertThat(map.containsKey(13), is(true));
     }
 }

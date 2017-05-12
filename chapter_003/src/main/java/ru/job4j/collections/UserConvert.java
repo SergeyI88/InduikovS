@@ -17,7 +17,6 @@ public class UserConvert {
             User user = iterator.next();
             hashMap.put(user.getId(), user);
         }
-        System.out.println(hashMap.get(13));
         return hashMap;
     }
 
