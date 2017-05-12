@@ -41,7 +41,6 @@ public class ConvertList {
                     arrayInt[i][j] = iterator.next();
                 }
             }
-            System.out.println();
         }
         return arrayInt;
     }
