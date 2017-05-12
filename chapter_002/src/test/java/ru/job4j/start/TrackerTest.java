@@ -3,6 +3,8 @@ package ru.job4j.start;
 import ru.job4j.models.Item;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -19,7 +21,7 @@ public void testAdd() {
  Tracker tracker = new Tracker();
  Item item = new Item("1", "test1", "testDescription", 123L);
  tracker.add(item);
- assertThat(tracker.findAll()[0], is(item));
+ assertThat(tracker.findAll().get(0), is(item));
 }
 /**
 * Test.
@@ -31,7 +33,7 @@ public void testDelete() {
  tracker.add(item);
  tracker.delete(item);
  Item it = null;
- assertThat(tracker.getAll()[0], is(it));
+ assertThat(tracker.getAll().get(0), is(it));
 }
 /**
 * Test.
@@ -43,7 +45,7 @@ public void testUpdate() {
  Item it = new Item("1", "test3.1", "testDesc", 124L);
  tracker.add(item);
  tracker.update(it);
- assertThat(tracker.findAll()[0], is(it));
+ assertThat(tracker.findAll().get(0), is(it));
 }
 /**
 * Test.
@@ -53,7 +55,7 @@ public void testFindByID() {
  Tracker tracker = new Tracker();
  Item item = new Item("1", "test4", "testDescription", 123L);
  tracker.add(item);
- assertThat(tracker.findAll()[0], is(tracker.findById("1")));
+ assertThat(tracker.findAll().get(0), is(tracker.findById("1")));
 }
 /**
 * Test.
@@ -63,9 +65,9 @@ public void testFindByName() {
  Tracker tracker = new Tracker();
  Item item1 = new Item("1", "test5", "testDescription", 123L);
  Item item2 = new Item("2", "test5", "testDes", 11L);
- Item[] items1 = new Item[2];
- items1[0] = item1;
- items1[1] = item2;
+ ArrayList<Item> items1 = new ArrayList<>();
+ items1.add(item1);
+ items1.add(item2);
  tracker.add(item1);
  tracker.add(item2);
  assertThat(items1, is(tracker.findByName("test5")));

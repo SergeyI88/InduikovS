@@ -2,6 +2,8 @@ package ru.job4j.start;
 
 import ru.job4j.models.Item;
 
+import java.util.ArrayList;
+
 /**
 *
 * class MenuTracker.
@@ -13,7 +15,7 @@ public class MenuTracker {
 /**
 * @param actions.
 */
-	private UserAction[] actions = new UserAction[6];
+	private ArrayList<UserAction> actions  = new ArrayList<>();
 /**
 * @param tracker.
 */
@@ -37,7 +39,7 @@ public class MenuTracker {
 * @param key first
 */
 	public void select(int key) {
-		this.actions[key].execute(this.input, this.tracker);
+		this.actions.get(key).execute(this.input, this.tracker);
 	}
 /**
 * method show.
@@ -53,12 +55,12 @@ public class MenuTracker {
 * method fill.
 */
 	public void fill() {
-		this.actions[0] = new AddItem();
-		this.actions[1] = new MenuTracker.ShowItems();
-		this.actions[2] = new EditItem();
-		this.actions[3] = new MenuTracker.FindById();
-		this.actions[4] = new DelItem();
-		this.actions[5] = new MenuTracker.FindByName();
+		this.actions.add(0, new AddItem());
+		this.actions.add(new MenuTracker.ShowItems());
+		this.actions.add(new EditItem());
+		this.actions.add(new MenuTracker.FindById());
+		this.actions.add(new DelItem());
+		this.actions.add(new MenuTracker.FindByName());
 	}
 /**
 *

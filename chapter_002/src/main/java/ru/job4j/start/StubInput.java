@@ -1,5 +1,6 @@
 package ru.job4j.start;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
 *
@@ -16,13 +17,14 @@ public class StubInput implements Input {
 /**
 * @param answers
 */
-	private String[] answers = new String[6];
+	//private String[] answers = new String[6];
+	private ArrayList<String> answers = new ArrayList<>(6);
 /**
 *
 *  онструктор.
 * @param answers first
 */
-	public StubInput(String[] answers) {
+	public StubInput(ArrayList<String> answers) {
 		this.answers = answers;
 	}
 /**
@@ -36,10 +38,10 @@ public class StubInput implements Input {
 	public int select() {
 		int select;
 		if (num == 0) {
-		select = Integer.parseInt(answers[0]);
+		select = Integer.parseInt(answers.get(0));
 		num++;
 		} else {
-		select = Integer.parseInt(answers[5]);
+		select = Integer.parseInt(answers.get(5));
 		}
 		return select;
 	}
@@ -50,7 +52,7 @@ public class StubInput implements Input {
 */
 	public String askName(String question) {
 		System.out.print(question);
-		return answers[1];
+		return answers.get(1);
 	}
 /**
 * method askId.
@@ -59,7 +61,7 @@ public class StubInput implements Input {
 */
 	public String askId(String question) {
 		System.out.print(question);
-		return answers[2];
+		return answers.get(2);
 	}
 /**
 * method askDescription.
@@ -68,7 +70,7 @@ public class StubInput implements Input {
 */
 	public String askDescription(String question) {
 		System.out.print(question);
-		return answers[3];
+		return answers.get(3);
 	}
 /**
 * method askCreate.
@@ -77,7 +79,7 @@ public class StubInput implements Input {
 */
 	public long askCreate(String question) {
 		System.out.print(question);
-		return Long.parseLong(answers[4]);
+		return Long.parseLong(answers.get(4));
 	}
 /**
 * method ask.
@@ -85,7 +87,7 @@ public class StubInput implements Input {
 * @param range second
 * @return long
 */
-	public int ask(String question, int[] range) {
+	public int ask(String question, ArrayList<Integer> range) {
 	//	throw new UnsupportedOperationException("Unsupported operation");
 	return -1;
 	}

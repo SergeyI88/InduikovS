@@ -1,6 +1,9 @@
 package ru.job4j.start;
 
 //import java.util.Scanner;
+
+import java.util.ArrayList;
+
 /**
 *
 * class ConsoleInput.
@@ -15,7 +18,7 @@ public class ValidateInput extends ConsoleInput {
 * @param range second
 * @return value
 */
-	public int ask(String question, int[] range) {
+	public int ask(String question, ArrayList<Integer> range) {
 		boolean invalid = true;
 		int value = 0;
 	do {

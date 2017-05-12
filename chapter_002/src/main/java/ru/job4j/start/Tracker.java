@@ -1,7 +1,10 @@
 package ru.job4j.start;
 
 import ru.job4j.models.Item;
-import java.util.Arrays;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
 * Tracker.
 *
@@ -9,97 +12,113 @@ import java.util.Arrays;
 * version 0.1
 */
 public class Tracker {
-/**
-* @param items
-*/
-	private Item[] items = new Item[10];
-/**
-* @param position second
-*/
-	private int position = 0;
-/**
-* method add.
-* @param item first
-*/
-	public void add(Item item) {
-		//item.setId(String.valueof(RN.next()));
-		this.items[position++] = item;
-	}
-/**
-* method finById.
-* @param id first
-* @return result
-*/
-	protected Item findById(String id) {
-		Item result = null;
-			for (int i = 0; i < items.length; i++) {
-				if (items[i] != null && items[i].getId().equals(id)) {
-					result = items[i];
-					break;
-				}
-			}
-		return result;
-	}
-/**
-* method update.
-* @param item first
-*/
-	public void update(Item item) {
-		for (int i = 0; i < items.length; i++) {
-			if (items[i] != null && item.getId().equals(items[i].getId())) {
-				System.out.println("log");
-				items[i] = item;
-				break;
-			}
-		}
-	}
-/**
-* method delete.
-* @param item first
-*/
-	public void delete(Item item) {
-		for (int i = 0; i < items.length; i++) {
-			if (this.items[i] != null && item.getId().equals(this.items[i].getId())) {
-				this.items[i] = null;
-				position--;
-				break;
-			}
-		}
-	}
-/**
-* method findAll.
-* @return tempItem
-*/
-	public Item[] findAll() {
-		Item[] tempItem = new Item[items.length];
-		int count = 0;
-		for (int i = 0; i < items.length; i++) {
-			if (items[i] != null) {
-			tempItem[count++] = items[i];
-			}
-		}
-		return Arrays.copyOf(tempItem, count);
-	}
-/**
-* method findByName.
-* @param key first
-* @return tempItem
-*/
-	public Item[] findByName(String key) {
-		Item[] tempItem = new Item[items.length];
-		int count = 0;
-		for (int i = 0; i < items.length; i++) {
-			if (items[i] != null && items[i].getName().equals(key)) {
-				tempItem[count++] = items[i];
-			}
-		}
-		return Arrays.copyOf(tempItem, count);
-	}
+    /**
+     * @param items
+     */
+    private ArrayList<Item> items = new ArrayList<Item>(10);
+    /**
+     * @param position second
+     */
+    private int position = 0;
+
+    /**
+     * method add.
+     *
+     * @param item first
+     */
+    public void add(Item item) {
+        //item.setId(String.valueof(RN.next()));
+        this.items.add(position++, item);
+    }
+
+    /**
+     * method finById.
+     *
+     * @param id first
+     * @return result
+     */
+    protected Item findById(String id) {
+        Item result = null;
+        Iterator iterator = items.iterator();
+        while (iterator.hasNext()) {
+            Item next = (Item) iterator.next();
+            if (next != null && next.getId().equals(id)) {
+                result = next;
+                break;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * method update.
+     *
+     * @param item first
+     */
+    public void update(Item item) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i) != null && items.get(i).getId().equals(item.getId())) {
+                int index = items.indexOf(items.get(i));
+                items.remove(items.get(i));
+                items.add(index, item);
+            }
+        }
+    }
+
+    /**
+     * method delete.
+     *
+     * @param item first
+     */
+    public void delete(Item item) {
+        Iterator<Item> iterator = items.iterator();
+        int i = 0;
+        while (iterator.hasNext()) {
+            Item next = iterator.next();
+            if (next != null && next.getId().equals(item.getId())) {
+                iterator.remove();
+                i++;
+                System.out.println("log");
+            }
+        }
+        if (i == 1) {
+            items.add(null);
+        }
+    }
+
+    /**
+     * method findAll.
+     *
+     * @return tempItem
+     */
+    public ArrayList<Item> findAll() {
+        items.trimToSize();
+        return items;
+    }
+
+    /**
+     * method findByName.
+     *
+     * @param key first
+     * @return tempItem
+     */
+    public ArrayList<Item> findByName(String key) {
+        Iterator iterator = items.iterator();
+        ArrayList<Item> tempItems = new ArrayList<>();
+        while (iterator.hasNext()) {
+            Item next = (Item) iterator.next();
+            if (next != null && next.getName().equals(key)) {
+                tempItems.add(next);
+            }
+        }
+        tempItems.trimToSize();
+        return tempItems;
+    }
 /**
 * method getAll.
 * @return items
 */
-	public Item[] getAll() {
-		return items;
+	public ArrayList<Item> getAll() {
+        return items;
 	}
 }

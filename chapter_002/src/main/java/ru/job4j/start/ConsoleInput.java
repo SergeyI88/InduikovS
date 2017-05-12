@@ -1,5 +1,6 @@
 package ru.job4j.start;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
 *
@@ -83,7 +84,7 @@ public class ConsoleInput implements Input {
 * @param range second
 * @return long
 */
-	public int ask(String question, int[] range) {
+	public int ask(String question, ArrayList<Integer> range) {
 		System.out.print(question);
 		int key = Integer.valueOf(this.select());
 		boolean exist = false;

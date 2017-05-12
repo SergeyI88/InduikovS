@@ -2,6 +2,9 @@ package ru.job4j.start;
 
 import ru.job4j.models.Item;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
 *
 * class StartUi.
@@ -12,8 +15,8 @@ import ru.job4j.models.Item;
 public class StartUi {
 /**
 * @param;
-*/
-	private static int[] range = new int[] {0, 1, 2, 3, 4, 5};
+ */
+	private static ArrayList<Integer> range = new ArrayList<Integer>(Arrays.asList(0, 1, 2, 3, 4, 5));
 /**
 * @param;
 */
@@ -76,9 +79,9 @@ public class StartUi {
 * method showItems.
 * @param items first
 */
-	public static void showItems(Item[] items) {
-			for (int i = 0; i < items.length; i++) {
-				System.out.println(String.format("%s %s %s %s", items[i].getId(), items[i].getName(), items[i].getDescription(), items[i].getCreate()));
+	public static void showItems(ArrayList<Item> items) {
+			for (int i = 0; i < items.size(); i++) {
+				System.out.println(String.format("%s %s %s %s", items.get(i).getId(), items.get(i).getName(), items.get(i).getDescription(), items.get(i).getCreate()));
 			}
 
 	}
