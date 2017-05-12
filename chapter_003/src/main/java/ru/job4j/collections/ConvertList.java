@@ -40,7 +40,6 @@ public class ConvertList {
                 if (iterator.hasNext()) {
                     arrayInt[i][j] = iterator.next();
                 }
-                System.out.print(arrayInt[i][j] + " ");
             }
             System.out.println();
         }
