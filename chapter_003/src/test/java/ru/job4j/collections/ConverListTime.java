@@ -35,8 +35,8 @@ public class ConverListTime {
         ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
         int[][] array;
         array = new ConvertList().toArray(arrayList, 4);
-        assertThat(array[1][2], is(arrayList.get(6)));
-        assertThat(array[1][3], is(0));
+        assertThat(array[2][1], is(arrayList.get(5)));
+        assertThat(array[3][1], is(0));
     }
     @Test
     public void testConvertListToArrayThree() {

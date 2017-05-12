@@ -31,10 +31,7 @@ public class ConvertList {
     public int[][] toArray(List<Integer> list, int rows) {
         ArrayList<Integer> arrayList = (ArrayList) list;
         arrayList.trimToSize();
-        int size = arrayList.size() <= rows ? 1 : arrayList.size() % rows == 0 ? arrayList.size() / rows : arrayList.size() / rows + arrayList.size() % rows;
-        if (size > rows) {
-            --size;
-        }
+        int size = arrayList.size() <= rows ? 1 : arrayList.size() % rows == 0 ? arrayList.size() / rows : arrayList.size() / rows + 1;
         int[][] arrayInt = new int[rows][size];
         System.out.println(size);
         Iterator<Integer> iterator = arrayList.iterator();
@@ -42,8 +39,6 @@ public class ConvertList {
             for (int j = 0; j < size; j++) {
                 if (iterator.hasNext()) {
                     arrayInt[i][j] = iterator.next();
-                } else {
-                    arrayInt[i][j] = 0;
                 }
                 System.out.print(arrayInt[i][j] + " ");
             }
