@@ -52,9 +52,9 @@ public class ConvertList {
     public List<Integer> convert (List<int[]> list) {
         LinkedList<int[]> tempList =  (LinkedList) list;
         List<Integer> allLists = new LinkedList<>();
-        for (int i = 0; i < tempList.size(); i++ ) {
-            for (int j = 0; j < tempList.get(i).length; j++) {
-                allLists.add(Integer.valueOf(list.get(i)[j]));
+        for (int[] temp : tempList) {
+            for (int temp2 : temp) {
+                allLists.add(Integer.valueOf(temp2));
             }
         }
         return allLists;
