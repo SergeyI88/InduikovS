@@ -16,10 +16,6 @@ public class Tracker {
      * @param items
      */
     private ArrayList<Item> items = new ArrayList<Item>(10);
-    /**
-     * @param position second
-     */
-    private int position = 0;
 
     /**
      * method add.
@@ -28,7 +24,7 @@ public class Tracker {
      */
     public void add(Item item) {
         //item.setId(String.valueof(RN.next()));
-        this.items.add(position++, item);
+        this.items.add(item);
     }
 
     /**
@@ -39,9 +35,9 @@ public class Tracker {
      */
     protected Item findById(String id) {
         Item result = null;
-        Iterator iterator = items.iterator();
+        Iterator<Item> iterator = items.iterator();
         while (iterator.hasNext()) {
-            Item next = (Item) iterator.next();
+            Item next = iterator.next();
             if (next != null && next.getId().equals(id)) {
                 result = next;
                 break;
@@ -59,8 +55,7 @@ public class Tracker {
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i) != null && items.get(i).getId().equals(item.getId())) {
                 int index = items.indexOf(items.get(i));
-                items.remove(items.get(i));
-                items.add(index, item);
+                items.set(i, item);
             }
         }
     }
@@ -103,10 +98,10 @@ public class Tracker {
      * @return tempItem
      */
     public ArrayList<Item> findByName(String key) {
-        Iterator iterator = items.iterator();
+        Iterator<Item> iterator = items.iterator();
         ArrayList<Item> tempItems = new ArrayList<>();
         while (iterator.hasNext()) {
-            Item next = (Item) iterator.next();
+            Item next = iterator.next();
             if (next != null && next.getName().equals(key)) {
                 tempItems.add(next);
             }
