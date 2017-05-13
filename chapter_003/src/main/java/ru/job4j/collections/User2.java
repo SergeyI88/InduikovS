@@ -20,11 +20,7 @@ public class User2 implements Comparable<User2> {
                 '}';
     }
 
-    @Override
-    public int compareTo(User2 o) {
 
-        return this.age > o.age ? 1 : -1;
-    }
 
     private int getAge() {
         return this.age;
@@ -34,4 +30,21 @@ public class User2 implements Comparable<User2> {
         return this.name;
     }
 
+    @Override
+    public int compareTo(User2 o) {
+        return Integer.compare(this.age, o.age);
+    }
+
+      @Override
+    public boolean equals(Object o) {
+
+        User2 user2 = (User2) o;
+
+        return age > user2.age;
+    }
+
+    @Override
+    public int hashCode() {
+        return age;
+    }
 }
