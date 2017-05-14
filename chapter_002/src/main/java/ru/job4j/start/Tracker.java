@@ -54,7 +54,6 @@ public class Tracker {
     public void update(Item item) {
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i) != null && items.get(i).getId().equals(item.getId())) {
-                int index = items.indexOf(items.get(i));
                 items.set(i, item);
             }
         }
