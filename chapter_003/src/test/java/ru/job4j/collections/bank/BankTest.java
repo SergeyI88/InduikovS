@@ -68,8 +68,12 @@ public class BankTest {
         bank.addUser(new User("nickolay", 123123, Arrays.asList(new Account(150, 111), new Account(500, 222))));
         bank.addAccountToUser(new User("nick", 123), new Account(300, 55555));
         Iterator<User> iterator = bank.map.keySet().iterator();
-        bank.transferMoney(iterator.next(), new Account(100, 12345),iterator.next(), new Account(150, 111), 100);
+        boolean test = bank.transferMoney(iterator.next(), new Account(100, 12345),iterator.next(), new Account(150, 111), 100);
+        Iterator<User> iterator2 = bank.map.keySet().iterator();
+        boolean test2 = bank.transferMoney(iterator2.next(), new Account(100, 12345),iterator2.next(), new Account(150, 111), 250);
         assertThat(0.0, is(bank.getUserAccounts(new User("nick", 123)).get(0).value));
         assertThat(250.0, is(bank.getUserAccounts(new User("nickolay", 123123)).get(0).value));
+        assertThat(test, is(true));
+        assertThat(test2, is(false));
     }
 }

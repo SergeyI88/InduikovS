@@ -79,9 +79,7 @@ public class Bank {
                     map.get(src).set(indexSrc, accountSrc);
                     map.get(dst).set(indexDst, accountDst);
                 }
-                answer = false;
             }
-            answer = false;
         }
         return answer;
     }
