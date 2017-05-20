@@ -30,7 +30,11 @@ public class SortStringToChar {
                         quantity2++;
                     }
                 }
-                 return quantity1 > quantity2 ? 1 : quantity1 == quantity2 ? 0 : -1;
+                int answer = quantity1 > quantity2 ? 1 : quantity1 == quantity2 ? 0 : -1;
+                if (answer == 0) {
+                    return o1.compareTo(o2);
+                }
+                 return answer;
             }
         };
         Collections.sort(list, comparator);
