@@ -6,13 +6,6 @@ import java.util.Iterator;
  * Created by user8.3 on 24.05.2017.
  */
 public class IteratorArray implements Iterator<Integer> {
-    public static void main(String[] args) {
-        int[] a = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 17, 132, 193, 222, 233, 445, 997, 455, 808};
-        IteratorArray iteratorArray = new IteratorArray(a);
-        while (iteratorArray.hasNext()) {
-            System.out.println(iteratorArray.next());
-        }
-    }
     private int[] array;
     private int index = 0;
 
