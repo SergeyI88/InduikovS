@@ -26,15 +26,12 @@ public class ArrayIterator implements Iterator<Integer> {
 
     @Override
     public Integer next() {
-        Integer[] array = new Integer[a.length * a[0].length];
-        int k = 0;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[0].length; j++) {
-                array[k++] = a[i][j];
-            }
+        index++;
+        if (indexColl == a.length) {
+            indexRow++;
+            indexColl = 0;
         }
-
-        return array[index++];
+        return a[indexRow][indexColl++];
     }
 
     @Override
