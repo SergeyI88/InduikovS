@@ -7,11 +7,6 @@ import java.util.Iterator;
  */
 public class IteratorArrayNumbers implements Iterator<Integer> {
     public static void main(String[] args) {
-        int[] a = {54, 434, 32, 5, 11, 13, 17, 19, 192, 7, 74, 28, 9, 13};
-        IteratorArrayNumbers iteratorArrayNumbers = new IteratorArrayNumbers(a);
-        while (iteratorArrayNumbers.hasNext()) {
-            iteratorArrayNumbers.next();
-        }
     }
 
     private int index = 0;
@@ -60,7 +55,6 @@ public class IteratorArrayNumbers implements Iterator<Integer> {
               }
           }
             if (k != 1){
-                System.out.println(a[index]);
                 return a[index++];
             }
         }
