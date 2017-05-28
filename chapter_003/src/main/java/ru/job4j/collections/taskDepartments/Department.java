@@ -32,11 +32,13 @@ public class Department implements Comparable {
                 if (c == '/') {
                     if (!(temp.contains(new Department(String.valueOf(cutArray))))) {
                         temp.add(new Department(String.valueOf(cutArray)));
+
                     }
                 }
                 buffer[j++] = c;
                 cutArray = Arrays.copyOf(buffer, j);
             }
+
         }
         return temp;
     }

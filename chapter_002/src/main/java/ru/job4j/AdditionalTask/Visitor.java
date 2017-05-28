@@ -1,5 +1,4 @@
-package ru.job4j.AdditionalTask;
-import java.util.Random;
+package ru.job4j.AdditionalTask;;
 
 /**
  * Created by admin on 02.05.2017.
@@ -19,9 +18,11 @@ public class Visitor {
     private boolean calculated = true;
 
     /**
-     * Конструктор
+     * Конструктор.
+     * @param in first
+     * @param out second
      */
-    public Visitor (int in, int out){
+    public Visitor(int in, int out) {
         this.in = in;
         this.out = out;
     }

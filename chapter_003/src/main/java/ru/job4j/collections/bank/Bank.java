@@ -16,7 +16,6 @@ public class Bank {
 
     public void deleteUser(User user) {
         if (map.containsKey(user)) {
-            System.out.println("log");
             map.remove(user);
         }
     }

@@ -12,12 +12,12 @@ public class StartBankingTest {
      * Test.
      */
     @Test
-    public void Test() {
+    public void test() {
 
         StartBanking startBanking = new StartBanking();
         startBanking.initVisitors();
         startBanking.determination();
-        String string = String.format("%s %s %s %s %s %s", "В", startBanking.getMax().hours, "часов", startBanking.getMax().minutes, "минуты было больше всего посетителей:", startBanking.getMax().max);
+        String string = String.format("%s %s %s %s %s %s", "В", startBanking.getMax().getHours(), "часов", startBanking.getMax().getMinutes(), "минуты было больше всего посетителей:", startBanking.getMax().getMax());
         assertThat("В 13 часов 22 минуты было больше всего посетителей: 7", is(string));
     }
 }

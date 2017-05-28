@@ -52,7 +52,7 @@ public class IteratorIterator implements Iterator<Iterator<Integer>> {
                 i++;
             }
         }
-        return index < i;
+        return index[0] < i;
     }
 
     @Override
