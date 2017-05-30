@@ -18,24 +18,11 @@ public class IteratorArrayNumbers implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        int j = index;
-        for (; j < a.length; j++) {
-            int temp = 2;
-            int i = a[j];
-            if (i == 3 || i == 5 || i == 7) {
-                return true;
-            }
-            int k = 1;
-            while (temp != 10) {
-                if (i % temp++ == 0) {
-                    k = 0;
-                }
-            }
-            if (k == 1) {
-                return true;
-            }
+        if (next() == 0) {
+            return false;
+        } else {
+            return true;
         }
-        return  false;
     }
 
 
@@ -58,7 +45,7 @@ public class IteratorArrayNumbers implements Iterator<Integer> {
                 return a[index++];
             }
         }
-        return null;
+        return 0;
     }
 
     @Override
