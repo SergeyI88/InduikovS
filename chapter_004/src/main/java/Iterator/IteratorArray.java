@@ -26,13 +26,10 @@ public class IteratorArray implements Iterator<Integer> {
 
     @Override
     public Integer next() {
-        if (array[index] % 2 == 0) {
-            return array[index++];
-        } else {
-            while (array[index++] % 2 != 0 && index < array.length) {
-            }
-            return array[index - 1];
+        while (array[index] % 2 != 0) {
+           index++;
         }
+        return array[index++];
     }
 
     @Override
