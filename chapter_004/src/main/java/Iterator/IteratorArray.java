@@ -3,7 +3,7 @@ package Iterator;
 import java.util.Iterator;
 
 /**
- * Created by user8.3 on 24.05.2017.
+ * Created by user8.3 on 24.05.2017. commit task 150
  */
 public class IteratorArray implements Iterator<Integer> {
     private int[] array;
