@@ -8,59 +8,49 @@ import java.util.List;
 /**
  * Created by user8.3 on 30.05.2017.
  */
-public class IteratorIterator {
-    public static void main(String[] args) {
-        Iterator<Integer> first = Arrays.asList(1, 2, 3).iterator();
-        Iterator<Integer> second = Arrays.asList(4, 5, 6).iterator();
-        Iterator<Iterator<Integer>> it = Arrays.asList(first, second).iterator();
-        Iterator<Integer> iter = convert(it);
-        while (iter.hasNext()) {
-            System.out.println(iter.next());
-        }
-    }
+public class IteratorIterator implements Iterator {
+    private Iterator<Iterator<Integer>> list;
+    private ArrayList<Iterator<Integer>> arrayList = new ArrayList<>();
+    private int index = 0;
 
-    private static Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
-        It iterator = new It(it);
-        int j= 0;
+    public static Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
+        IteratorIterator iterator = new IteratorIterator(it);
+        int j = 0;
         return iterator;
     }
-    public static class It implements Iterator {
-        private Iterator<Iterator<Integer>> list;
-        private ArrayList<Iterator<Integer>> arrayList = new ArrayList<>();
-        int index = 0;
 
-        public It(Iterator<Iterator<Integer>> list) {
-            this.list = list;
-            while (list.hasNext()) {
-                arrayList.add(list.next());
-            }
+    public IteratorIterator(Iterator<Iterator<Integer>> list) {
+        this.list = list;
+        while (list.hasNext()) {
+            arrayList.add(list.next());
         }
+    }
 
-        @Override
-        public boolean hasNext() {
-            if (index < arrayList.size()) {
-                if (arrayList.get(index).hasNext()) {
+    @Override
+    public boolean hasNext() {
+        if (index < arrayList.size()) {
+            if (arrayList.get(index).hasNext()) {
+                return true;
+            } else {
+                if (index + 1 < arrayList.size()) {
                     return true;
-                } else {
-                    if (index + 1 < arrayList.size()) {
-                        return true;
-                    }
                 }
             }
-            return false;
         }
+        return false;
+    }
 
-        @Override
-        public Object next() {
-            if (arrayList.get(index).hasNext()) {
-                return arrayList.get(index).next();
-            } else {
-                return arrayList.get(++index).next();
-            }
+    @Override
+    public Integer next() {
+        if (arrayList.get(index).hasNext()) {
+            return arrayList.get(index).next();
+        } else {
+            return arrayList.get(++index).next();
         }
+    }
 
-        @Override
-        public void remove() {
-        }
+    @Override
+    public void remove() {
+
     }
 }
