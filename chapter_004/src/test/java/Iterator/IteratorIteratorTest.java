@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 /**
- * Created by admin on 30.05.2017.
+ * Created by admin on 30.05.2017. commit task 152
  */
 public class IteratorIteratorTest {
     @Test

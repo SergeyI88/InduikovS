@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by user8.3 on 30.05.2017.
+ * Created by user8.3 on 30.05.2017. commit task 152
  */
 public class IteratorIterator implements Iterator {
     private Iterator<Iterator<Integer>> list;
