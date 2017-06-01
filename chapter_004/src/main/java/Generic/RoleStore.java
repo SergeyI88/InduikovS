@@ -4,7 +4,7 @@ package Generic;
  * Created by admin on 01.06.2017.
  */
 public class RoleStore implements Store<Role>  {
-    SimpleList<Role> simpleList;
+    public SimpleList<Role> simpleList;
 
     public RoleStore(int size) {
         this.simpleList = new SimpleList<>(size);

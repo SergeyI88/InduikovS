@@ -6,7 +6,7 @@ import javax.jws.soap.SOAPBinding;
  * Created by admin on 01.06.2017.
  */
 public class UserStore implements Store<User> {
-    SimpleList<User> simpleList;
+    public SimpleList<User> simpleList;
 
     public UserStore(int size) {
         this.simpleList = new SimpleList<>(size);

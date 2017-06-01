@@ -13,7 +13,5 @@ package Generic;
 
 4. Помните. про инкапсуляцию. В методах store нельзя использовать методы c index.*/
 public interface Store<T extends Base> {
-    public void add();
-    public void delete();
-    public void update();
+
 }
