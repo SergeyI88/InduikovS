@@ -5,9 +5,7 @@ import com.sun.org.apache.xml.internal.serializer.ElemDesc;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-/**
- * Created by admin on 06.06.2017.
- */
+
 public class ContainerLinkedList<E> implements Iterable<E> {
 
     private int index = 0;
