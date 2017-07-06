@@ -27,5 +27,4 @@ public class ContainerLinkedListTest {
         iterator.next();
         Assert.assertFalse(iterator.hasNext());
     }
-
 }
