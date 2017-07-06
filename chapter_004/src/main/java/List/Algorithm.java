@@ -1,20 +1,11 @@
 package List;
 
+import java.util.HashSet;
+
 /**
  * Created by admin on 10.06.2017.
  */
 public class Algorithm {
-    public static void main(String[] args) {
-        Node first = new Node(1);
-        Node two = new Node(2);
-        Node third = new Node(3);
-        Node four = new Node(4);
-        first.next = two;
-        two.next = third;
-        third.next = four;
-        four.next = first;
-        System.out.println(new Algorithm().hasCycle(first));
-    }
     protected static class Node<T> {
         T value;
         Node<T> next;
@@ -25,14 +16,16 @@ public class Algorithm {
     }
 
     boolean hasCycle(Node first) {
+        HashSet<Node> set = new HashSet<>();
+
         Node node = first.next;
-        while (node != null && node != first) {
+        set.add(first);
+        while (set.add(node)) {
+            if (node.next == null) {
+                return false;
+            }
             node = node.next;
         }
-        if (node == first) {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
     }
 }

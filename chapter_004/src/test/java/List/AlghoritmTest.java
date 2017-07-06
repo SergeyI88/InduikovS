@@ -20,6 +20,7 @@ public class AlghoritmTest {
         four.next = first;
         Assert.assertTrue(algorithm.hasCycle(first));
     }
+    @Test
     public void determinationOfALoopList2() {
         Algorithm algorithm = new Algorithm();
         Algorithm.Node first = new Algorithm.Node(1);
