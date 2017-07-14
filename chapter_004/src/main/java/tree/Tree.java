@@ -7,12 +7,12 @@ import java.util.List;
 /**
  * Class Tree
  *
- * @author Sergey
  * @param <E> parametrized type
+ * @author Sergey
  */
 public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
+
     /**
-     *
      * @param <E> parametrized type
      */
     class Node<E> {
@@ -27,6 +27,7 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
 
         /**
          * Constructor Node
+         *
          * @param parent take value
          */
         public Node(E parent) {
@@ -37,6 +38,7 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
 
         /**
          * For output in console
+         *
          * @return
          */
         @Override
@@ -56,8 +58,9 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
 
     /**
      * add new node int tree, if @parent equals one of the elements in tree
+     *
      * @param parent parent search key
-     * @param child child add value
+     * @param child  child add value
      * @return
      */
     @Override
@@ -89,7 +92,6 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
                         }
                     }
                 }
-
             }
         }
         if (!result) {
@@ -99,19 +101,43 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
     }
 
     /**
+     * Method checks is binary tree or no.
+     * @return
+     */
+    public boolean isBinary() {
+        boolean result = true;
+        if (nodeForSearchParent.childen.size() >= 2) {
+            for (Node n : nodeForSearchParent.childen) {
+                if (!n.childen.isEmpty()) {
+                    nodeForSearchParent = n;
+                    if (!isBinary()) {
+                        result = false;
+                    }
+                }
+            }
+        } else {
+            result = false;
+        }
+        return result;
+    }
+
+    /**
      * Method for implements Iterator in tree
+     *
      * @return iterator
      */
     @Override
     public Iterator<E> iterator() {
         return new TreeIterator<>(node);
     }
+
     /**
      * Class for implements Iterator in tree
      */
     private class TreeIterator<E> implements Iterator<E> {
         /**
          * Take root
+         *
          * @param node
          */
         Node<E> node;
@@ -121,12 +147,14 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
         List<Node<E>> list;
         /**
          * For iterator paths
+         *
          * @param index
          */
         int index = 0;
 
         /**
          * Need for iterator
+         *
          * @return list - Generated of tree
          */
         public List<Node<E>> methodGenerateListOfTreeForIterator() {
@@ -146,6 +174,7 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
 
         /**
          * Constructor TreeIterator
+         *
          * @param node
          */
         public TreeIterator(Node<E> node) {
@@ -156,6 +185,7 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
 
         /**
          * Checks have tree elements, which could return
+         *
          * @return
          */
         @Override
@@ -165,6 +195,7 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
 
         /**
          * Return next element
+         *
          * @return
          */
         @Override
