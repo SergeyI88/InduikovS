@@ -6,9 +6,7 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
-/**
- * Created by admin on 15.07.2017.
- */
+
 public class SearchBinaryTreeTest {
     @Test
     public void whenUseMethodAdd() {
@@ -30,6 +28,7 @@ public class SearchBinaryTreeTest {
         Assert.assertThat(9, Is.is(tree.node.left.value));
         Assert.assertThat(16, Is.is(tree.node.right.right.left.value));
     }
+
     @Test
     public void whenUseIterator() {
         SearchBinaryTree<Integer> tree = new SearchBinaryTree<>();

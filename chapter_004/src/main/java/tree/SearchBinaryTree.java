@@ -9,33 +9,6 @@ import java.util.*;
  * @author Sergey
  */
 public class SearchBinaryTree<E extends Comparable<E>> implements Iterable<E> {
-    public static void main(String[] args) {
-        SearchBinaryTree<Integer> tree = new SearchBinaryTree<>();
-        tree.add(10);
-        tree.add(9);
-        tree.add(8);
-        tree.add(5);
-        tree.add(6);
-        tree.add(6);
-        tree.add(4);
-        tree.add(1);
-        tree.add(3);
-        tree.add(2);
-        tree.add(15);
-        tree.add(17);
-        tree.add(16);
-        System.out.println(tree.add(14));
-        System.out.println(tree.node.left.left.left.left.left.right.left);
-        System.out.println(tree.node.left);
-        System.out.println(tree.node.right.right.left);
-        System.out.println(tree.d());
-    }
-
-    private List<E> d() {
-        TreeIteratorForIsBinary iterator = (TreeIteratorForIsBinary) iterator();
-        return iterator.list;
-    }
-
     /**
      * @param <E> parametrized type
      */
@@ -177,6 +150,7 @@ public class SearchBinaryTree<E extends Comparable<E>> implements Iterable<E> {
 
         /**
          * Method Generate List for Iterator of tree.
+         *
          * @param root
          * @return
          */
