@@ -1,115 +1,122 @@
 package map;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
- * Created by admin on 09.07.2017.
+ * Class directory
+ *
+ * @author sergey
+ * @param <T>
+ * @param <V>
  */
 public class Directory<T, V> implements Iterable {
-    public static void main(String[] args) {
-        Directory directory = new Directory();
-        directory.insert(1, "1");
-        directory.insert(2, "2");
-        directory.insert(3, "3");
-        directory.insert(4, "4");
-        directory.insert(5, "5");
-        directory.insert(6, "5");
-        directory.insert(7, "5");
-        directory.insert(8, "5");
-        directory.insert(9, "5");
-        directory.insert(10, "5");
-        // System.out.println(directory.delete(1));
-        System.out.println(directory.delete(10));
-        System.out.println(directory);
-    }
+    /**
+     * Array linkedlists
+     */
+    LinkedList<Entry> lists[];
 
-    Entry entry[];
-    private int length;
-
+    /**
+     * Constructor
+     */
     public Directory() {
-        length = 0;
-        this.entry = new Entry[10];
-        for (int i = 0; i < entry.length; i++) {
-            entry[i] = new Entry();
+        this.lists = new LinkedList[100];
+        for (int i = 0; i < lists.length; i++) {
+            lists[i] = new LinkedList<>();
         }
     }
 
+    /**
+     * Paste in directory
+     * @param key should be uniquie.
+     * @param value
+     * @return
+     */
     public boolean insert(T key, V value) {
-        if (isEmpty(key)) {
-            if (length >= entry.length) {
-                System.arraycopy(entry, 0, entry, 0, ((entry.length + entry.length >> 1)));
-
-            }
-            entry[length] = new Entry();
-            entry[length].setKey(key);
-            entry[length++].setValue(value);
+        if (notExists(key)) {
+            lists[key.hashCode() % lists.length].add(new Entry<>(key, value));
         }
         return false;
     }
 
+    /**
+     * Method get find value by the key.
+     * @param key
+     * @return value.
+     */
     public V get(T key) {
-        for (Entry k : entry) {
-            if (k == null) {
-                return null;
-            } else if (k.key.hashCode() == key.hashCode() || k.key.equals(key)) {
-                return (V) k.getValue();
-            } else {
-                return null;
+        Object value = null;
+        for (Entry e : lists[key.hashCode() % lists.length]) {
+            if (key.equals(e.getKey())) {
+                value = e.getValue();
             }
         }
-        return null;
+        return (V) value;
     }
 
+    /**
+     * Method delete, remove Entry by the key
+     * @param key
+     * @return
+     */
     public boolean delete(T key) {
-        for (int i = 0; i < entry.length; i++) {
-            if (entry[i].getKey().equals(key)) {
-                for (int j = i; j < entry.length; j++) {
-                    if (j == entry.length - 1) {
-                        entry[j] = null;
-                    } else {
-                        entry[j] = entry[j + 1];
-                        System.out.println("log");
-                    }
-                }
-                return true;
+        boolean result = false;
+        for (int i = 0; i < lists[key.hashCode() % lists.length].size(); i++) {
+            if (result = lists[key.hashCode() % lists.length].get(i).getKey().equals(key)) {
+                lists[key.hashCode() % lists.length].remove(i);
+
             }
         }
-        return false;
+        return result;
     }
 
-    private boolean isEmpty(T key) {
-        for (Entry k : entry) {
-            if (k.getKey() == null) {
-                return true;
-            }
-            if (k.getKey().hashCode() == key.hashCode()) {
+    /**
+     * Method notExists checks have direcory already it key.
+     * @param key
+     * @return
+     */
+    private boolean notExists(T key) {
+        boolean result = true;
+        for (LinkedList l : lists) {
+            if (l.contains(key)) {
                 return false;
             }
         }
-        return true;
+        return result;
     }
 
+    /**
+     * Iterator
+     * @return
+     */
     @Override
     public Iterator<Entry> iterator() {
-        return new IteratorMap<Entry>(entry);
+        return new IteratorMap<Entry>(lists);
     }
 
+    /**
+     * Class IteratorMap need for directory
+     *
+     * @param <E>
+     */
     private class IteratorMap<E> implements Iterator<E> {
         int length = 0;
-        private Entry entry[];
+        private Object[] entry;
 
-        public IteratorMap(Entry[] entry) {
-            this.entry = entry;
+        public IteratorMap(LinkedList[] lists) {
+            ArrayList<Entry> list = new ArrayList<>();
+            for (LinkedList<Entry> l : lists) {
+                if (!l.isEmpty()) {
+                    list.addAll(l);
+                }
+            }
+            entry = list.toArray();
         }
 
         @Override
         public boolean hasNext() {
-            if (length < this.entry.length) {
-                if (this.entry[length].key == null) {
-                    return false;
-                }
-            }
             return length < this.entry.length;
         }
 
@@ -124,9 +131,23 @@ public class Directory<T, V> implements Iterable {
         }
     }
 
+    /**
+     * Class entry contains uniquie key and value.
+     *
+     * @param <T>
+     * @param <V>
+     */
     public class Entry<T, V> {
         protected Object key;
         protected Object value;
+
+        public Entry(Object key, Object value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public Entry() {
+        }
 
         public T getKey() {
             return (T) key;
@@ -151,10 +172,11 @@ public class Directory<T, V> implements Iterable {
             }
             return null;
         }
+
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(entry);
+        return Arrays.toString(lists);
     }
 }

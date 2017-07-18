@@ -13,7 +13,7 @@ import java.util.Iterator;
  */
 public class DirectoryTest {
     @Test
-    @Ignore
+
     public void whenAddAndUseGetInDirectory() {
         Directory directory = new Directory();
         directory.insert(1, "1");
