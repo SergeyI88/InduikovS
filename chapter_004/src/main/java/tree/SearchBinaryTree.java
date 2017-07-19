@@ -58,17 +58,18 @@ public class SearchBinaryTree<E extends Comparable<E>> implements Iterable<E> {
      */
     public boolean add(E e) {
         boolean result = false;
+        int resultEquals;
         if (result = node == null) {
             node = new Node<>(e);
             nodeForSearchParent = node;
-        } else if (result = nodeForSearchParent.value.compareTo(e) == 0 || nodeForSearchParent.value.compareTo(e) > 0) {
+        } else if (result = (resultEquals = nodeForSearchParent.value.compareTo(e)) >= 0) {
             if (nodeForSearchParent.left == null) {
                 nodeForSearchParent.left = new Node<>(e);
             } else {
                 nodeForSearchParent = nodeForSearchParent.left;
                 add(e);
             }
-        } else if (result = nodeForSearchParent.value.compareTo(e) < 0) {
+        } else if (result = resultEquals < 0) {
             if (nodeForSearchParent.right == null) {
                 nodeForSearchParent.right = new Node<>(e);
             } else {
@@ -94,26 +95,6 @@ public class SearchBinaryTree<E extends Comparable<E>> implements Iterable<E> {
      */
     private class TreeIteratorForIsBinary<E> implements Iterator<E> {
 
-        private class NodeForIterator {
-            List<Node<E>> listNodes;
-            Node<E> left;
-            Node<E> right;
-            /**
-             * @param value which storage in nodes
-             */
-            E value;
-
-            /**
-             * For output in console
-             *
-             * @return
-             */
-            @Override
-            public String toString() {
-                return String.valueOf(value);
-            }
-        }
-
         /**
          * @param root
          */
@@ -134,7 +115,6 @@ public class SearchBinaryTree<E extends Comparable<E>> implements Iterable<E> {
          * @param index
          */
         int index = 0;
-        private List<List<Node<E>>> list1;
 
         /**
          * Constructor TreeIterator
