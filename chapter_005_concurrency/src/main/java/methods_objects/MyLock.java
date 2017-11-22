@@ -1,32 +1,32 @@
 package methods_objects;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import net.jcip.annotations.GuardedBy;
+import net.jcip.annotations.ThreadSafe;
 
-
+@ThreadSafe
 public class MyLock {
-    Queue<Thread> queue = new ArrayDeque<>();
+    @GuardedBy("mutex")
+    volatile boolean lock = false;
+    Object object = new Object();
+
 
     public MyLock() {
     }
 
     public void lock() throws InterruptedException {
-        if (!queue.isEmpty()) {
-            synchronized (queue) {
-                queue.offer(Thread.currentThread());
-                queue.wait();
+        synchronized (object) {
+            while (lock) {
+               // System.out.println(Thread.currentThread().getName());
+                object.wait();
             }
-        } else {
-            queue.offer(Thread.currentThread());
+            lock = true;
         }
     }
 
     public void unlock() {
-        if (!queue.isEmpty()) {
-            queue.poll();
-            synchronized (queue) {
-                queue.notify();
-            }
+        lock = false;
+        synchronized (object) {
+            object.notifyAll();
         }
     }
 }
