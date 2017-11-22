@@ -52,6 +52,9 @@ public class ThreadPool implements Executor {
             Thread.currentThread().sleep(1000);
         }
         isRunning = false;
+        synchronized (ourTasks) {
+            ourTasks.notifyAll();
+        }
     }
 
     /**
@@ -71,7 +74,6 @@ public class ThreadPool implements Executor {
                         }
                     }
                 } else {
-                    System.out.println(Thread.currentThread().getName());
                     Runnable r = ourTasks.poll();
                     if (r != null) {
                         r.run();
