@@ -1,62 +1,36 @@
 package methods_objects;
 
+import java.util.LinkedList;
+
 /**
  * @author SergeyI
  * @since 01.11.2017
- *
+ * <p>
  * Here this is class show us how are working two threads in one queue.
  */
 public class ProducerCustomer<E> {
-    Node<E> node = new Node<>();
-    Object lock = new Object();
+    LinkedList<E> list = new LinkedList<>();
 
     public void add(E o) {
-        synchronized (lock) {
-            if (node == null) {
-                node = new Node<E>(o);
-            } else if (node.next == null) {
-                node.next = new Node(o);
-
-            } else {
-                Node<E> temp = node;
-                node = node.next;
-                add(o);
-                node = temp;
-            }
-                lock.notify();
+        synchronized (list) {
+            list.add(o);
+            list.notify();
         }
     }
 
     public E get() {
-        Node<E> temp;
-        synchronized (lock) {
-            temp = new Node<>();
-            if (node != null) {
-                temp = node;
-                node = node.next;
-            } else {
-                System.out.println("any");
+        Object e;
+        synchronized (list) {
+            if (list.isEmpty()) {
                 try {
-                    lock.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    list.wait();
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
                 }
             }
+            e = list.remove(0);
         }
-        return temp.object;
+        return (E) e;
     }
-
-    private class Node<E> {
-        Node next;
-        E object;
-
-        public Node(E e) {
-            object = e;
-        }
-
-        public Node() {
-        }
-    }
-
 
 }
